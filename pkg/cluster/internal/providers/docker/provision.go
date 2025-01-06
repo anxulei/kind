@@ -242,6 +242,11 @@ func runArgsForNode(node *config.Node, clusterIPFamily config.ClusterIPFamily, n
 		args...,
 	)
 
+	if node.NodeIP != "" {
+		fmt.Printf("Node %s (Role: %s) has NodeIP: %s\n", name, node.Role, node.NodeIP)
+		args = append(args, "--ip", node.NodeIP)
+	}
+
 	// convert mounts and port mappings to container run args
 	args = append(args, generateMountBindings(node.ExtraMounts...)...)
 	mappingArgs, err := generatePortMappings(clusterIPFamily, node.ExtraPortMappings...)

@@ -104,6 +104,8 @@ type Node struct {
 	// If unset a default image will be used, see defaults.Image
 	Image string `yaml:"image,omitempty" json:"image,omitempty"`
 
+	NodeIP string `yaml:"nodeIP,omitempty" json:"nodeIP,omitempty"`
+
 	// Labels are the labels with which the respective node will be labeled
 	Labels map[string]string `yaml:"labels,omitempty" json:"labels,omitempty"`
 
